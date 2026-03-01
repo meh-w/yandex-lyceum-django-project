@@ -1,0 +1,24 @@
+{% load static i18n %}
+<div class="col-md-6 col-lg-4 mb-4">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+
+      <p class="card-text">{{ item.text|truncatechars:100 }}</p>
+
+      <p class="small text-muted mb-2">{% trans "Категория:" %} {{ item.category }}</p>
+
+        {% if item.tags %}
+        <div class="mb-2">
+          {% for tag in item.tags %}
+          <span class="badge bg-secondary me-1">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{% url "catalog:item" item.id %}" class="btn btn-outline-primary btn-sm">
+          {% trans "Подробнее" %}
+        </a>
+    </div>
+  </div>
+</div>

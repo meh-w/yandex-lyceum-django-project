@@ -1,0 +1,32 @@
+{% load tz i18n %}
+
+<footer class="bg-light py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-0">
+      © 
+      <span id="copyright-year">{% now "Y" %}</span>
+      {% trans "Яндекс Django Project. Все права защищены." %}
+    </p>
+  </div>
+</footer>
+
+{% block scripts %}
+<script>
+  (function() {
+    const serverYear = parseInt(document.getElementById("copyright-year").textContent);
+    
+    const browserDate = new Date();
+    const browserYear = browserDate.getFullYear();
+    
+    const serverDate = new Date(serverYear, 0, 1); 
+    const currentDate = new Date(browserYear, browserDate.getMonth(), browserDate.getDate());
+    
+    const timeDiff = Math.abs(currentDate - serverDate);
+    const hoursDiff = timeDiff / (1000 * 60 * 60);
+    
+    if (hoursDiff < 24) {
+      document.getElementById("copyright-year").textContent = browserYear;
+    }
+  })();
+</script>
+{% endblock %}

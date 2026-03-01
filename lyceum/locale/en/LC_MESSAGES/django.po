@@ -1,0 +1,192 @@
+# English translations for Django project.
+# Copyright (C) 2024
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-28 16:04+0000\n"
+"PO-Revision-Date: 2026-02-28 16:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lyceum/settings.py:123
+msgid "Английский"
+msgstr "English"
+
+#: lyceum/settings.py:124
+msgid "Русский"
+msgstr "Russian"
+
+#: templates/about/about.html:4 templates/about/about.html:9
+#: templates/homepage/main.html:27 templates/includes/header.html:44
+#: templates/includes/header.html:46
+msgid "О проекте"
+msgstr "About"
+
+#: templates/about/about.html:13
+msgid "Этот проект создан в рамках обучения."
+msgstr "This project was created as part of training."
+
+#: templates/about/about.html:14
+msgid ""
+"Здесь мы учимся взаимодействовать с фреймворком Django, а еще мы очень любим "
+"енотов!"
+msgstr ""
+"Here we learn to interact with the Django framework, and we also really love "
+"raccoons!"
+
+#: templates/about/about.html:20
+msgid "Факты о проекте"
+msgstr "Project Facts"
+
+#: templates/about/about.html:22
+msgid "Пишем на Django"
+msgstr "Written in Django"
+
+#: templates/about/about.html:23
+msgid "Используем Bootstrap 5"
+msgstr "Using Bootstrap 5"
+
+#: templates/about/about.html:24
+msgid "База данных на SQLlite3"
+msgstr "SQLite3 Database"
+
+#: templates/about/about.html:25
+msgid "Еноты вдохновляют на код"
+msgstr "Raccoons inspire code"
+
+#: templates/about/about.html:34
+msgid "Почему именно еноты?"
+msgstr "Why raccoons?"
+
+#: templates/about/about.html:36
+msgid ""
+"Еноты — удивительные создания. Они умны, любопытны и всегда находят "
+"нестандартные решения. Чем не метафора для программиста? К тому же, полоски "
+"на хвосте напоминают структуру URL-маршрутов!"
+msgstr ""
+"Raccoons are amazing creatures. They are smart, curious, and always find non-"
+"standard solutions. What a metaphor for a programmer! Plus, the stripes on "
+"the tail resemble the structure of URL routes!"
+
+#: templates/about/about.html:39
+msgid "Еноты не крадут еду, они её тестируют на свежесть"
+msgstr "Raccoons don't steal food, they test it for freshness"
+
+#: templates/about/about.html:40
+msgid "Главный енот-программист"
+msgstr "Chief Raccoon Programmer"
+
+#: templates/base.html:7
+msgid "Яндекс Django Project"
+msgstr "Yandex Django Project"
+
+#: templates/base.html:17
+msgid "Контент не подвезли"
+msgstr "No content available"
+
+#: templates/catalog/item.html:13 templates/includes/item_card.html:9
+msgid "Категория:"
+msgstr "Category:"
+
+#: templates/catalog/item.html:18
+msgid "Описание:"
+msgstr "Description:"
+
+#: templates/catalog/item.html:24
+msgid "Теги:"
+msgstr "Tags:"
+
+#: templates/catalog/item_list.html:4 templates/homepage/main.html:28
+#: templates/homepage/main.html:44 templates/includes/header.html:52
+#: templates/includes/header.html:54
+msgid "Список товаров"
+msgstr "Catalog"
+
+#: templates/catalog/item_list.html:9
+msgid "Наши товары"
+msgstr "Our Products"
+
+#: templates/catalog/item_list.html:10
+msgid "Вот что мы предлагаем"
+msgstr "Here's what we offer"
+
+#: templates/catalog/item_list.html:20
+msgid "Товаров пока нет!"
+msgstr "No products yet!"
+
+#: templates/homepage/main.html:4
+msgid "Главная страница"
+msgstr "Home Page"
+
+#: templates/homepage/main.html:11
+msgid "енотик"
+msgstr "raccoon"
+
+#: templates/homepage/main.html:16
+msgid "Добро пожаловать!"
+msgstr "Welcome!"
+
+#: templates/homepage/main.html:19
+msgid ""
+"Это главная страница проекта. Здесь всё вертится вокруг енотов и немного "
+"вокруг фреймворка Django."
+msgstr ""
+"This is the main page of the project. Everything revolves around raccoons "
+"and a little bit around the Django framework."
+
+#: templates/homepage/main.html:24
+msgid "Навигация по сайту:"
+msgstr "Site Navigation:"
+
+#: templates/homepage/main.html:27
+msgid "узнать, зачем мы всё это затеяли"
+msgstr "find out why we started this"
+
+#: templates/homepage/main.html:28
+msgid "посмотреть на товары от енотика"
+msgstr "see products from the raccoon"
+
+#: templates/homepage/main.html:35
+msgid ""
+"Енот заходит в бар, а бармен говорит: «У нас не обслуживают полосатых!» Енот "
+"отвечает: «А я не полосатый, я в тельняшке!»"
+msgstr ""
+"A raccoon walks into a bar, and the bartender says: 'We don't serve striped "
+"ones!' The raccoon replies: 'But I'm not striped, I'm wearing a striped "
+"shirt!'"
+
+#: templates/includes/footer.html:8
+msgid "Яндекс Django Project. Все права защищены."
+msgstr "Yandex Django Project. All rights reserved."
+
+#: templates/includes/header.html:7
+msgid "Яндекс Django"
+msgstr "Yandex Django"
+
+#: templates/includes/header.html:17
+msgid "EN"
+msgstr "EN"
+
+#: templates/includes/header.html:21
+msgid "RU"
+msgstr "RU"
+
+#: templates/includes/header.html:36
+msgid "Главная"
+msgstr "Home"
+
+#: templates/includes/header.html:38
+msgid "На главную"
+msgstr "To Home"
+
+#: templates/includes/item_card.html:20
+msgid "Подробнее"
+msgstr "Details"

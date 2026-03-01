@@ -1,0 +1,64 @@
+{% load static i18n %}
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom mt-2">
+    <div class="container">
+      <a class="navbar-brand" href="{% url "homepage:main" %}">
+        <img src="{% static "images/logo.png" %}" alt="{% trans "Яндекс Django" %}" height="40">
+      </a>
+
+      <div class="language-switcher me-3">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        
+        <form action="{% url "set_language" %}" method="post" class="d-inline">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.path }}">
+          
+          {% for language in languages %}
+            {% if language.code != LANGUAGE_CODE %}
+              <button type="submit" name="language" value="{{ language.code }}" class="btn btn-sm btn-outline-light">
+                {{ language.name_local }}
+              </button>
+            {% endif %}
+          {% endfor %}
+        </form>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            {% if request.resolver_match.view_name == "homepage:main" %}
+              <span class="nav-link active" aria-current="page">{% trans "Главная" %}</span>
+            {% else %}
+              <a class="nav-link" href="{% url "homepage:main" %}">{% trans "На главную" %}</a>
+            {% endif %}
+          </li>
+
+          <li class="nav-item">
+            {% if request.resolver_match.view_name == "about:about" %}
+              <span class="nav-link active">{% trans "О проекте" %}</span>
+            {% else %}
+              <a class="nav-link" href="{% url "about:about" %}">{% trans "О проекте" %}</a>
+            {% endif %}
+          </li>
+
+          <li class="nav-item">
+            {% if request.resolver_match.view_name == "catalog:item_list" %}
+              <span class="nav-link active">{% trans "Список товаров" %}</span>
+            {% else %}
+              <a class="nav-link" href="{% url "catalog:item_list" %}">{% trans "Список товаров" %}</a>
+            {% endif %}
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "О проекте" %}{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <h1 class="display-4 mb-4">{% trans "О проекте" %}</h1>
+
+      <div class="card mb-4 border-0 bg-light">
+        <div class="card-body">
+          <p class="lead">{% trans "Этот проект создан в рамках обучения." %}</p>
+          <p>{% trans "Здесь мы учимся взаимодействовать с фреймворком Django, а еще мы очень любим енотов!" %}</p>
+
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 bg-light">
+                <div class="card-body">
+                  <h5 class="card-title">{% trans "Факты о проекте" %}</h5>
+                  <ul class="list-unstyled">
+                    <li class="mb-2">{% trans "Пишем на Django" %}</li>
+                    <li class="mb-2">{% trans "Используем Bootstrap 5" %}</li>
+                    <li class="mb-2">{% trans "База данных на SQLlite3" %}</li>
+                    <li class="mb-2">{% trans "Еноты вдохновляют на код" %}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0" style="background-color: #f8f9fa;">
+            <div class="card-body">
+                <h5 class="card-title mb-3">🦝 {% trans "Почему именно еноты?" %}</h5>
+                <p class="card-text">
+                    {% trans "Еноты — удивительные создания. Они умны, любопытны и всегда находят нестандартные решения. Чем не метафора для программиста? К тому же, полоски на хвосте напоминают структуру URL-маршрутов!" %}
+                </p>
+                <p class="card-text fst-italic mb-0">
+                    — "{% trans "Еноты не крадут еду, они её тестируют на свежесть" %}" 
+                    (с) {% trans "Главный енот-программист" %}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

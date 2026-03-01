@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Список товаров" %}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+  <div class="col-12">
+    <h1 class="display-5 mb-3">{% trans "Наши товары" %}</h1>
+    <p class="lead">{% trans "Вот что мы предлагаем" %}</p>
+  </div>
+</div>
+
+<div class="row">
+  {% for item in items %}
+    {% include "includes/item_card.html" with item=item %}
+  {% empty %}
+  <div class="col-12">
+    <div class="alert alert-info">
+      {% trans "Товаров пока нет!" %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,167 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "электроника",
+    "is_published": true,
+    "normalized_name": "электроника",
+    "slug": "electronic_slug",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "одежда",
+    "is_published": true,
+    "normalized_name": "одежда",
+    "slug": "clothes_slug",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "ограничено",
+    "is_published": true,
+    "normalized_name": "ограничено",
+    "slug": "ogranicheno_slug"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "хит",
+    "is_published": true,
+    "normalized_name": "хит",
+    "slug": "hit_slug"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 3,
+  "fields": {
+    "name": "новинка",
+    "is_published": true,
+    "normalized_name": "новинка",
+    "slug": "novinka_slug"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 4,
+  "fields": {
+    "name": "премиум",
+    "is_published": true,
+    "normalized_name": "премиум",
+    "slug": "premium_slug"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 5,
+  "fields": {
+    "name": "распродажа",
+    "is_published": true,
+    "normalized_name": "распродажа",
+    "slug": "sale_slug"
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 1,
+  "fields": {
+    "name": "iphone 15 pro max",
+    "is_published": true,
+    "text": "роскошно! дорого, богато.",
+    "category": 1,
+    "tags": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 2,
+  "fields": {
+    "name": "наушники sony",
+    "is_published": true,
+    "text": "превосходно, роскошно, наушники сони эриксон и т.д.",
+    "category": 1,
+    "tags": [
+      3,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 3,
+  "fields": {
+    "name": "кроссовки puma",
+    "is_published": true,
+    "text": "кроссовки puma это роскошно.",
+    "category": 2,
+    "tags": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 4,
+  "fields": {
+    "name": "куртка the north face",
+    "is_published": true,
+    "text": "это превосходно.",
+    "category": 2,
+    "tags": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 5,
+  "fields": {
+    "name": "samsung galaxy s25 ultra",
+    "is_published": true,
+    "text": "дорого богато превосходно",
+    "category": 1,
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 1,
+  "fields": {
+    "item": 5,
+    "image": "items/main/samsung.jpg"
+  }
+},
+{
+  "model": "catalog.itemimage",
+  "pk": 1,
+  "fields": {
+    "item": 5,
+    "image": "items/gallery/samsung01.jpg"
+  }
+},
+{
+  "model": "catalog.itemimage",
+  "pk": 2,
+  "fields": {
+    "item": 5,
+    "image": "items/gallery/samsung02.jpg"
+  }
+}
+]

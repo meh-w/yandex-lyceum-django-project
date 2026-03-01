@@ -1,0 +1,192 @@
+# Russian translations for Django project.
+# Copyright (C) 2026
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-28 16:04+0000\n"
+"PO-Revision-Date: 2026-02-28 16:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: lyceum/settings.py:123
+msgid "Английский"
+msgstr "Английский"
+
+#: lyceum/settings.py:124
+msgid "Русский"
+msgstr "Русский"
+
+#: templates/about/about.html:4 templates/about/about.html:9
+#: templates/homepage/main.html:27 templates/includes/header.html:44
+#: templates/includes/header.html:46
+msgid "О проекте"
+msgstr "О проекте"
+
+#: templates/about/about.html:13
+msgid "Этот проект создан в рамках обучения."
+msgstr "Этот проект создан в рамках обучения."
+
+#: templates/about/about.html:14
+msgid ""
+"Здесь мы учимся взаимодействовать с фреймворком Django, а еще мы очень любим "
+"енотов!"
+msgstr ""
+"Здесь мы учимся взаимодействовать с фреймворком Django, а еще мы очень любим "
+"енотов!"
+
+#: templates/about/about.html:20
+msgid "Факты о проекте"
+msgstr "Факты о проекте"
+
+#: templates/about/about.html:22
+msgid "Пишем на Django"
+msgstr "Пишем на Django"
+
+#: templates/about/about.html:23
+msgid "Используем Bootstrap 5"
+msgstr "Используем Bootstrap 5"
+
+#: templates/about/about.html:24
+msgid "База данных на SQLlite3"
+msgstr "База данных на SQLlite3"
+
+#: templates/about/about.html:25
+msgid "Еноты вдохновляют на код"
+msgstr "Еноты вдохновляют на код"
+
+#: templates/about/about.html:34
+msgid "Почему именно еноты?"
+msgstr "Почему именно еноты?"
+
+#: templates/about/about.html:36
+msgid ""
+"Еноты — удивительные создания. Они умны, любопытны и всегда находят "
+"нестандартные решения. Чем не метафора для программиста? К тому же, полоски "
+"на хвосте напоминают структуру URL-маршрутов!"
+msgstr ""
+"Еноты — удивительные создания. Они умны, любопытны и всегда находят "
+"нестандартные решения. Чем не метафора для программиста? К тому же, полоски "
+"на хвосте напоминают структуру URL-маршрутов!"
+
+#: templates/about/about.html:39
+msgid "Еноты не крадут еду, они её тестируют на свежесть"
+msgstr "Еноты не крадут еду, они её тестируют на свежесть"
+
+#: templates/about/about.html:40
+msgid "Главный енот-программист"
+msgstr "Главный енот-программист"
+
+#: templates/base.html:7
+msgid "Яндекс Django Project"
+msgstr "Яндекс Django Project"
+
+#: templates/base.html:17
+msgid "Контент не подвезли"
+msgstr "Контент не подвезли"
+
+#: templates/catalog/item.html:13 templates/includes/item_card.html:9
+msgid "Категория:"
+msgstr "Категория:"
+
+#: templates/catalog/item.html:18
+msgid "Описание:"
+msgstr "Описание:"
+
+#: templates/catalog/item.html:24
+msgid "Теги:"
+msgstr "Теги:"
+
+#: templates/catalog/item_list.html:4 templates/homepage/main.html:28
+#: templates/homepage/main.html:44 templates/includes/header.html:52
+#: templates/includes/header.html:54
+msgid "Список товаров"
+msgstr "Список товаров"
+
+#: templates/catalog/item_list.html:9
+msgid "Наши товары"
+msgstr "Наши товары"
+
+#: templates/catalog/item_list.html:10
+msgid "Вот что мы предлагаем"
+msgstr "Вот что мы предлагаем"
+
+#: templates/catalog/item_list.html:20
+msgid "Товаров пока нет!"
+msgstr "Товаров пока нет!"
+
+#: templates/homepage/main.html:4
+msgid "Главная страница"
+msgstr "Главная страница"
+
+#: templates/homepage/main.html:11
+msgid "енотик"
+msgstr "енотик"
+
+#: templates/homepage/main.html:16
+msgid "Добро пожаловать!"
+msgstr "Добро пожаловать!"
+
+#: templates/homepage/main.html:19
+msgid ""
+"Это главная страница проекта. Здесь всё вертится вокруг енотов и немного "
+"вокруг фреймворка Django."
+msgstr ""
+"Это главная страница проекта. Здесь всё вертится вокруг енотов и немного "
+"вокруг фреймворка Django."
+
+#: templates/homepage/main.html:24
+msgid "Навигация по сайту:"
+msgstr "Навигация по сайту:"
+
+#: templates/homepage/main.html:27
+msgid "узнать, зачем мы всё это затеяли"
+msgstr "узнать, зачем мы всё это затеяли"
+
+#: templates/homepage/main.html:28
+msgid "посмотреть на товары от енотика"
+msgstr "посмотреть на товары от енотика"
+
+#: templates/homepage/main.html:35
+msgid ""
+"Енот заходит в бар, а бармен говорит: «У нас не обслуживают полосатых!» Енот "
+"отвечает: «А я не полосатый, я в тельняшке!»"
+msgstr ""
+"Енот заходит в бар, а бармен говорит: «У нас не обслуживают полосатых!» Енот "
+"отвечает: «А я не полосатый, я в тельняшке!»"
+
+#: templates/includes/footer.html:8
+msgid "Яндекс Django Project. Все права защищены."
+msgstr "Яндекс Django Project. Все права защищены."
+
+#: templates/includes/header.html:7
+msgid "Яндекс Django"
+msgstr "Яндекс Django"
+
+#: templates/includes/header.html:17
+msgid "EN"
+msgstr "EN"
+
+#: templates/includes/header.html:21
+msgid "RU"
+msgstr "RU"
+
+#: templates/includes/header.html:36
+msgid "Главная"
+msgstr "Главная"
+
+#: templates/includes/header.html:38
+msgid "На главную"
+msgstr "На главную"
+
+#: templates/includes/item_card.html:20
+msgid "Подробнее"
+msgstr "Подробнее"

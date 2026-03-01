@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Главная страница" %}{% endblock %}
+
+{% block content %}
+<div class="row align-items-center min-vh-50">
+  <div class="col-md-5 col-lg-4 mb-4 mb-md-0">
+    <img src="{% static 'images/raccoon.png' %}"
+         class="img-fluid"
+         alt="{% trans 'енотик' %}"
+         style="max-width: 100%; height: auto; max-height: 350px;">
+  </div>
+
+  <div class="col-md-7 col-lg-8">
+    <h1 class="display-5 mb-4">{% trans "Добро пожаловать!" %}</h1>
+
+    <p class="lead mb-4">
+      {% trans "Это главная страница проекта. Здесь всё вертится вокруг енотов и немного вокруг фреймворка Django." %}
+    </p>
+
+    <div class="bg-white p-4 rounded-3 border mb-4">
+      <p class="mb-2 fw-bold">
+        {% trans "Навигация по сайту:" %}
+      </p>
+      <ul class="list-unstyled ms-3 mb-0">
+        <li class="mb-2">• <strong>{% trans "О проекте" %}</strong> — {% trans "узнать, зачем мы всё это затеяли" %}</li>
+        <li class="mb-2">• <strong>{% trans "Список товаров" %}</strong> — {% trans "посмотреть на товары от енотика" %}</li>
+      </ul>
+    </div>
+    
+    <div class="card border-0 bg-light">
+      <div class="card-body">
+        <p class="card-text fst-italic mb-0">
+          "{{ raccoon_joke|default:_('Енот заходит в бар, а бармен говорит: «У нас не обслуживают полосатых!» Енот отвечает: «А я не полосатый, я в тельняшке!»') }}"
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-12">
+    <h2 class="h3 mb-3">{% trans "Список товаров" %}</h2>
+  </div>
+</div>
+
+<div class="row mb-4">
+  {% for item in items|slice:":3" %}
+    {% include "includes/item_card.html" with item=item %}
+  {% endfor %}
+</div>
+{% endblock %}
