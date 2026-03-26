@@ -1,9 +1,7 @@
+__all__ = ("about_view",)
+
 from django.shortcuts import render
 from django.utils import timezone
-
-__all__ = [
-    "about_view",
-]
 
 
 def about_view(request):

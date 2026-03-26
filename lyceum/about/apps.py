@@ -1,6 +1,6 @@
-from django.apps import AppConfig
+__all__ = ("AboutConfig",)
 
-__all__ = ["AboutConfig"]
+from django.apps import AppConfig
 
 
 class AboutConfig(AppConfig):

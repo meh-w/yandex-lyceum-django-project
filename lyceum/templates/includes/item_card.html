@@ -4,21 +4,21 @@
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
 
-      <p class="card-text">{{ item.text|truncatechars:100 }}</p>
+      <p class="card-text">{{ item.text|striptags|truncatewords_html:10 }}</p>
 
-      <p class="small text-muted mb-2">{% trans "Категория:" %} {{ item.category }}</p>
+      <p class="small text-muted mb-2">{% trans "Категория:" %} {{ item.category.name }}</p>
 
-        {% if item.tags %}
-        <div class="mb-2">
-          {% for tag in item.tags %}
-          <span class="badge bg-secondary me-1">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
+      {% if item.tags.all %}
+      <div class="mb-2">
+        {% for tag in item.tags.all %}
+        <span class="badge bg-secondary me-1">{{ tag.name }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
 
-        <a href="{% url "catalog:item" item.id %}" class="btn btn-outline-primary btn-sm">
-          {% trans "Подробнее" %}
-        </a>
+      <a href="{% url "catalog:item" item.id %}" class="btn btn-outline-primary btn-sm">
+        {% trans "Подробнее" %}
+      </a>
     </div>
   </div>
 </div>

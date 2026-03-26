@@ -1,14 +1,15 @@
+__all__ = (
+    "CategoryNormalizationTests",
+    "TagNormalizationTests",
+    "CrossModelNameTests",
+    "DifficultTests",
+)
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 from parameterized import parameterized
 
 from catalog.models import Category, Tag
-
-__all__ = [
-    "CategoryNormalizationTests",
-    "TagNormalizationTests",
-    "CrossModelNameTests",
-]
 
 
 class CategoryNormalizationTests(TestCase):
@@ -100,3 +101,28 @@ class CrossModelNameTests(TestCase):
         tag = Tag(name="Ноутбуки", slug="notebook-tag")
 
         tag.full_clean()
+
+
+class DifficultTests(TestCase):
+    def test_b_cyrillic_vs_latin(self):
+        Category.objects.create(name="воровать", slug="vorovat")
+
+        duplicate = Category(name="вороватb", slug="vorovat2")
+        with self.assertRaises(ValidationError):
+            duplicate.full_clean()
+
+    def test_i_l_1_equivalence(self):
+        Category.objects.create(name="иллюзия", slug="illuziya")
+
+        duplicates = ["iллюзия", "lлюзия", "1люзия"]
+        for dup in duplicates:
+            duplicate = Category(name=dup, slug=f"{dup}-slug")
+            with self.assertRaises(ValidationError):
+                duplicate.full_clean()
+
+    def test_yoga_equivalence(self):
+        Category.objects.create(name="йога", slug="yoga")
+
+        duplicate = Category(name="иога", slug="yoga2")
+        with self.assertRaises(ValidationError):
+            duplicate.full_clean()

@@ -32,6 +32,17 @@ DJANGO_ALLOW_REVERSE = env.str(
 
 ALLOW_REVERSE = str_to_bool_allow_reverse(DJANGO_ALLOW_REVERSE)
 
+DJANGO_MAIL = env.str("DJANGO_MAIL", default="noreply@example.com")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = env.str("EMAIL_HOST", default="smtp.yandex.ru")
+EMAIL_PORT = env.int("EMAIL_PORT", default=465)
+EMAIL_USE_SSL = env.bool("EMAIL_USE_SSL", default=True)
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD", default="")
+
+SITE_ID = 2
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -40,13 +51,14 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_cleanup.apps.CleanupConfig",
     "django_ckeditor_5",
     "sorl.thumbnail",
     "about.apps.AboutConfig",
     "catalog.apps.CatalogConfig",
     "core.apps.CoreConfig",
+    "feedback.apps.FeedbackConfig",
     "homepage.apps.HomepageConfig",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
 MIDDLEWARE = [
@@ -95,26 +107,25 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
-            "django.contrib.auth.password_validation"
-            ".UserAttributeSimilarityValidator"
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
         ),
     },
     {
         "NAME": (
-            "django.contrib.auth.password_validation"
-            + ".MinimumLengthValidator"
+            "django.contrib.auth.password_validation." "MinimumLengthValidator"
         ),
     },
     {
         "NAME": (
-            "django.contrib.auth.password_validation"
-            ".CommonPasswordValidator"
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
         ),
     },
     {
         "NAME": (
-            "django.contrib.auth.password_validation"
-            ".NumericPasswordValidator"
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
         ),
     },
 ]
@@ -156,3 +167,7 @@ CKEDITOR_5_CONFIGS = {
         "language": "ru",
     },
 }
+
+CKEDITOR_5_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+
+CKEDITOR_5_UPLOAD_FILE_VIEW_NAME = "ck_editor_5_upload_file"

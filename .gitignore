@@ -155,6 +155,8 @@ ENV/
 env.bak/
 venv.bak/
 
+send_mail/
+
 # Spyder project settings
 .spyderproject
 .spyproject

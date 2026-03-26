@@ -8,6 +8,8 @@ urlpatterns = [
     path("about/", include("about.urls")),
     path("admin/", django.contrib.admin.site.urls),
     path("catalog/", include("catalog.urls")),
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
+    path("feedback/", include("feedback.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 

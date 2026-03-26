@@ -1,33 +1,49 @@
-import django.http
-from django.shortcuts import render
-from django.utils import timezone
+__all__ = (
+    "item_list",
+    "item_detail",
+)
 
-from homepage.fake_items import FAKE_ITEMS
+from django.db.models import Prefetch
+from django.shortcuts import get_object_or_404, render
 
-__all__ = [
-    "item_list_view",
-    "item_view",
-    "return_number",
-]
+from catalog.models import Item, Tag
 
 
-def item_list_view(request):
-    context = {
-        "items": FAKE_ITEMS,
-        "now": timezone.now(),
-    }
+def item_list(request):
+    items = (
+        Item.objects.filter(is_published=True, category__is_published=True)
+        .select_related("category")
+        .prefetch_related(Prefetch("tags", queryset=Tag.objects.only("name")))
+        .only("id", "name", "text", "category__name")
+        .order_by("category__name")
+    )
+
+    context = {"items": items}
+
     return render(request, "catalog/item_list.html", context)
 
 
-def item_view(request, item_id):
-    item = next((x for x in FAKE_ITEMS if x["id"] == item_id), None)
+def item_detail(request, item_id):
+    item = get_object_or_404(
+        Item.objects.filter(is_published=True)
+        .select_related("category", "main_image")
+        .prefetch_related(
+            Prefetch("tags", queryset=Tag.objects.only("name")),
+            "images",
+        )
+        .only(
+            "id",
+            "name",
+            "text",
+            "category__name",
+            "main_image__image",
+        ),
+        id=item_id,
+    )
 
     context = {
         "item": item,
-        "now": timezone.now(),
+        "main_image": getattr(item, "main_image", None),
     }
+
     return render(request, "catalog/item.html", context)
-
-
-def return_number(request, int_item):
-    return django.http.HttpResponse(str(int_item))

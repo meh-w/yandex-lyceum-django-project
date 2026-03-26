@@ -1,13 +1,13 @@
+__all__ = (
+    "ItemTextValidationTests",
+    "ModelsValidationTests",
+)
+
 from django.core.exceptions import ValidationError
 import django.test
 from parameterized import parameterized
 
 from catalog.models import Category, Item, Tag
-
-__all__ = [
-    "ItemTextValidationTests",
-    "ModelsValidationTests",
-]
 
 
 class ItemTextValidationTests(django.test.TestCase):

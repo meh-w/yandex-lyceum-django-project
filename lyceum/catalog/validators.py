@@ -1,10 +1,10 @@
+__all__ = "ValidateMustContain"
+
 import re
 
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 from django.utils.html import strip_tags
-
-__all__ = ["ValidateMustContain"]
 
 
 @deconstructible

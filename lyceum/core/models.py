@@ -1,13 +1,19 @@
-from django.core.exceptions import ValidationError
-import django.db.models
-
-from core.utils import normalize_name
-
-__all__ = [
+__all__ = (
     "BaseIsPublishedModel",
     "BaseNameModel",
     "NormalizedNameMixinModel",
-]
+    "PublishedManager",
+)
+
+from django.core.exceptions import ValidationError
+import django.db.models
+
+from core.utils import generate_b_variants, normalize_name
+
+
+class PublishedManager(django.db.models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_published=True)
 
 
 class BaseNameModel(django.db.models.Model):
@@ -22,9 +28,7 @@ class BaseNameModel(django.db.models.Model):
         abstract = True
 
     def __str__(self):
-        if len(self.name) > 15:
-            return f"{self.name[:15]}"
-        return self.name
+        return self.name[:15]
 
 
 class BaseIsPublishedModel(django.db.models.Model):
@@ -34,6 +38,9 @@ class BaseIsPublishedModel(django.db.models.Model):
         help_text="опубликовано ли?",
     )
 
+    objects = django.db.models.Manager()
+    published = PublishedManager()
+
     class Meta:
         abstract = True
 
@@ -41,19 +48,28 @@ class BaseIsPublishedModel(django.db.models.Model):
 class NormalizedNameMixinModel(django.db.models.Model):
     normalized_name = django.db.models.CharField(
         max_length=150,
-        unique=True,
+        unique=False,
         editable=False,
         verbose_name="нормализованное имя",
-        help_text="нормализованное имя с проверкой на уникальность",
+        help_text="нормализованное имя",
     )
 
     class Meta:
         abstract = True
 
+    def save(self, *args, **kwargs):
+        self.normalized_name = self.get_normalized_name()
+
+        if not kwargs.get("raw", False):
+            self.full_clean()
+
+        super().save(*args, **kwargs)
+
     def get_normalized_name(self):
         return normalize_name(self.name)
 
-    def validate_normalized_unique(self):
+    def clean(self):
+        super().clean()
         normalized = self.get_normalized_name()
 
         queryset = self.__class__.objects.exclude(pk=self.pk).filter(
@@ -63,16 +79,20 @@ class NormalizedNameMixinModel(django.db.models.Model):
         if queryset.exists():
             raise ValidationError(
                 {
-                    "name": f"{self._meta.verbose_name} с похожим именем"
-                    + " уже существует",
+                    "name": f"{self._meta.verbose_name} с похожим именем уже"
+                    + " существует",
                 },
             )
 
-    def clean(self):
-        super().clean()
-        self.validate_normalized_unique()
-
-    def save(self, *args, **kwargs):
-        self.normalized_name = self.get_normalized_name()
-        self.full_clean()
-        super().save(*args, **kwargs)
+        for candidate in generate_b_variants(normalized):
+            if (
+                self.__class__.objects.exclude(pk=self.pk)
+                .filter(normalized_name=candidate)
+                .exists()
+            ):
+                raise ValidationError(
+                    {
+                        "name": f"{self._meta.verbose_name} с похожим именем"
+                        + " уже существует",
+                    },
+                )

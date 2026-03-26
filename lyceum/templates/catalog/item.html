@@ -5,29 +5,56 @@
 
 {% block content %}
 <div class="row">
-  <div class="card shadow">
-    <div class="card-body">
-      <h1 class="card-title h2 mb-4">{{ item.name }}</h1>
+  <div class="col-12">
+    <div class="card shadow">
+      <div class="card-body">
+        
+        <h1 class="card-title h2 mb-4">{{ item.name }}</h1>
 
-      <div class="mb-4">
-        <h5 class="text-muted mb-2">{% trans "Категория:" %}</h5>
-        <p>{{ item.category }}</p>
+        {% if item.main_image %}
+        <div class="mb-4 text-center">
+          <img src="{{ item.main_image.image.url }}" 
+               alt="{{ item.name }}" 
+               class="img-fluid rounded" 
+               style="max-height: 400px;">
+        </div>
+        {% endif %}
+
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">{% trans "Категория:" %}</h5>
+          <p>{{ item.category.name }}</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">{% trans "Описание:" %}</h5>
+          <p>{{ item.text|safe }}</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">{% trans "Теги:" %}</h5>
+          {% for tag in item.tags.all %}
+            <span class="badge bg-secondary me-1">{{ tag.name }}</span>
+          {% empty %}
+            <p>{% trans "Нет тегов" %}</p>
+          {% endfor %}
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-muted mb-2">{% trans "Дополнительные изображения:" %}</h5>
+          <div class="row">
+            {% for image in item.images.all %}
+            <div class="col-md-3 mb-3">
+              <img src="{{ image.image.url }}" 
+                   alt="{{ item.name }}" 
+                   class="img-fluid rounded">
+            </div>
+            {% empty %}
+              <p>{% trans "Нет изображений" %}</p>
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
-
-      <div class="mb-4">
-        <h5 class="text-muted mb-2">{% trans "Описание:" %}</h5>
-        <p>{{ item.text }}</p>
-      </div>
-
-      {% if item.tags %}
-      <div class="mb-4">
-        <h5 class="text-muted mb-2">{% trans "Теги:" %}</h5>
-        {% for tag in item.tags %}
-        <span class="badge bg-secondary me-1">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-
     </div>
   </div>
 </div>

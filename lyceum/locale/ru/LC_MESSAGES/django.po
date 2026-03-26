@@ -190,3 +190,79 @@ msgstr "На главную"
 #: templates/includes/item_card.html:20
 msgid "Подробнее"
 msgstr "Подробнее"
+
+#: feedback/forms.py:18
+msgid "Ваше имя"
+msgstr "Ваше имя"
+
+#: feedback/forms.py:27
+msgid "Ваше сообщение..."
+msgstr "Ваше сообщение..."
+
+#: feedback/forms.py:34
+msgid "Имя"
+msgstr "Имя"
+
+#: feedback/forms.py:35
+msgid "Email"
+msgstr "Email"
+
+#: feedback/forms.py:36
+msgid "Сообщение"
+msgstr "Сообщение"
+
+#: feedback/forms.py:48
+msgid "Ваше обращение получено"
+msgstr "Ваше обращение получено"
+
+#: feedback/forms.py:51
+msgid "Здравствуйте"
+msgstr "Здравствуйте"
+
+#: feedback/forms.py:53
+msgid "Спасибо за ваше обращение. Мы получили ваше сообщение."
+msgstr "Спасибо за ваше обращение. Мы получили ваше сообщение."
+
+#: feedback/forms.py:54
+msgid "Наш специалист свяжется с вами в ближайшее время."
+msgstr "Наш специалист свяжется с вами в ближайшее время."
+
+#: feedback/forms.py:56
+msgid "С уважением"
+msgstr "С уважением"
+
+#: feedback/forms.py:57
+msgid "Команда сайта"
+msgstr "Команда сайта"
+
+#: feedback/forms.py:62
+msgid "Новое обращение от {name}"
+msgstr "Новое обращение от {name}"
+
+#: feedback/forms.py:63
+msgid "Текст обращения"
+msgstr "Текст обращения"
+
+#: feedback/views.py:12
+msgid "Спасибо за ваше обращение!"
+msgstr "Спасибо за ваше обращение!"
+
+#: feedback/templates/feedback/feedback.html:9
+msgid "Форма обратной связи"
+msgstr "Форма обратной связи"
+
+#: feedback/templates/feedback/feedback.html:33
+msgid "На этот адрес будет отправлен ответ"
+msgstr "На этот адрес будет отправлен ответ"
+
+#: feedback/templates/feedback/feedback.html:48
+msgid "Отправить"
+msgstr "Отправить"
+
+#: feedback/templates/feedback/feedback.html:51
+msgid "Очистить"
+msgstr "Очистить"
+
+#: templates/includes/header.html:61
+msgid "Обратная связь"
+msgstr "Обратная связь"

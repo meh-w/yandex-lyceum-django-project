@@ -1,3 +1,11 @@
+__all__ = (
+    "Category",
+    "Item",
+    "ItemImage",
+    "ItemMainImage",
+    "Tag",
+)
+
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.safestring import mark_safe
@@ -9,15 +17,8 @@ from core.models import (
     BaseIsPublishedModel,
     BaseNameModel,
     NormalizedNameMixinModel,
+    PublishedManager,
 )
-
-__all__ = [
-    "Category",
-    "Item",
-    "ItemImage",
-    "ItemMainImage",
-    "Tag",
-]
 
 
 class Category(BaseIsPublishedModel, BaseNameModel, NormalizedNameMixinModel):
@@ -63,6 +64,8 @@ class Tag(BaseIsPublishedModel, BaseNameModel, NormalizedNameMixinModel):
 
 
 class Item(BaseIsPublishedModel, BaseNameModel):
+    objects = PublishedManager()
+
     text = CKEditor5Field(
         validators=[
             ValidateMustContain("превосходно", "роскошно"),
@@ -75,16 +78,20 @@ class Item(BaseIsPublishedModel, BaseNameModel):
         Category,
         on_delete=models.CASCADE,
         related_name="items",
+        related_query_name="item",
         verbose_name="категория",
         help_text="выберите категорию",
     )
 
     tags = models.ManyToManyField(
         Tag,
-        related_name="related",
+        related_name="items",
+        related_query_name="item",
         verbose_name="тег",
         help_text="выберите теги для товара",
     )
+
+    is_on_main = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "товар"
@@ -99,6 +106,7 @@ class Item(BaseIsPublishedModel, BaseNameModel):
                 quality=85,
             )
             return mark_safe(f"<img src='{thumb.url}' width='40' height='40'>")
+
         return "—"
 
     admin_image.short_description = "Изображение"
@@ -121,7 +129,11 @@ class ItemMainImage(models.Model):
         verbose_name_plural = "главные изображения"
 
     def __str__(self):
-        return f"Главное изображение {self.item}"
+        name = f"Главное изображение {self.item}"
+        if len(name) > 15:
+            return f"{name[:15]}"
+
+        return name
 
 
 class ItemImage(models.Model):
@@ -141,4 +153,8 @@ class ItemImage(models.Model):
         verbose_name_plural = "изображения"
 
     def __str__(self):
-        return f"Изображение {self.item}"
+        name = f"Изображение {self.item}"
+        if len(name) > 15:
+            return f"{name[:15]}"
+
+        return name

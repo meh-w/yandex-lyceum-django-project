@@ -1,10 +1,10 @@
+__all__ = ("ReverseRussianEveryTenthMiddleware",)
+
 import re
 
 from django.conf import settings
 
-__all__ = ["ReverseRussianEveryTenthMiddleware"]
-
-RUSSIAN_WORD_RE = re.compile(r"[А-Яа-яЁё]+")
+RUSSIAN_WORD_RE = re.compile(r"\b[А-Яа-яЁё]+\b")
 
 
 class ReverseRussianEveryTenthMiddleware:

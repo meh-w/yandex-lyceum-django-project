@@ -1,6 +1,6 @@
 # Yandex Lyceum Django Project
 
-[![Lint & Test](https://github.com/meh-w/yandex-lyceum-django-project/actions/workflows/ci.yml/badge.svg)](https://github.com/meh-w/yandex-lyceum-django-project/actions/workflows/ci.yml)
+[![pipeline status](https://gitlab.crja72.ru/django/2026/spring/course/students/380833-meh.ww-course-1585/badges/main/pipeline.svg?key_text=Lint+%26+Test)](https://gitlab.crja72.ru/django/2026/spring/course/students/380833-meh.ww-course-1585/-/commits/main)
 
 ## О проекте
 
@@ -40,11 +40,11 @@ source venv/bin/activate
 #### 3. Установка зависимостей
 
 Определитесь с необходимой зависимостью и установите ее:
-* Prod (продакшн) – рабочая версия продукта, доступная обычным пользователям;
+* Prod (продакшн) – рабочая версия продукта, доступная обычным пользователям:
 ```bash
 pip install -r requirements/prod.txt
 ```
-* Test (тестирование) – инструменты и библиотеки для диагностирования проекта;
+* Test (тестирование) – инструменты и библиотеки для диагностирования проекта:
 ```bash
 pip install -r requirements/test.txt
 ```
@@ -92,22 +92,8 @@ copy template.env .env
 ```bash
 cp template.env .env
 ```
-#### 5. Настройка перевода
 
-Проект поддерживает русский и английский языки.
-
-Для корректной работы перевода выполните следующие шаги:
-```bash
-django-admin makemessages -l ru --settings=lyceum.settings
-django-admin makemessages -l en --settings=lyceum.settings
-```
-
-Отредактируйте .po файлы, добавив необходимый статический перевод!
-```bash
-django-admin compilemessages
-```
-
-#### 6. Запуск сервера
+#### 5. Запуск сервера
 
 Применение миграций:
 ```bash
@@ -131,8 +117,23 @@ python manage.py runserver
 
 Панель администратора будет доступна по адресу http://127.0.0.1:8000/admin/
 
+### Дополнительные настройки
+
+Проект поддерживает русский и английский языки.
+
+Для корректной работы перевода выполните следующие шаги:
+```bash
+django-admin makemessages -l ru --settings=lyceum.settings
+django-admin makemessages -l en --settings=lyceum.settings
+```
+
+Отредактируйте .po файлы, добавив необходимый статический перевод!
+```bash
+django-admin compilemessages
+```
+
 ## Структура проекта
 
 ER-диаграмма базы данных проекта представлена в файле ER.jpg.
 
-<img src="ER.jpg" alt="ER-диаграмма базы данных" width="400"/>
+![ER-диаграмма](ER.jpg)

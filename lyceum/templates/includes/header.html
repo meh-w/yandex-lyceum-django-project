@@ -50,10 +50,18 @@
           </li>
 
           <li class="nav-item">
-            {% if request.resolver_match.view_name == "catalog:item_list" %}
+            {% if request.resolver_match.view_name == "catalog:item-list" %}
               <span class="nav-link active">{% trans "Список товаров" %}</span>
             {% else %}
-              <a class="nav-link" href="{% url "catalog:item_list" %}">{% trans "Список товаров" %}</a>
+              <a class="nav-link" href="{% url "catalog:item-list" %}">{% trans "Список товаров" %}</a>
+            {% endif %}
+          </li>
+
+          <li class="nav-item">
+            {% if request.resolver_match.view_name == "feedback:feedback" %}
+              <span class="nav-link active">{% trans "Обратная связь" %}</span>
+            {% else %}
+              <a class="nav-link" href="{% url "feedback:feedback" %}">{% trans "Обратная связь" %}</a>
             {% endif %}
           </li>
 
