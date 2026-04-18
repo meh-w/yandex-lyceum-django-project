@@ -1,7 +1,5 @@
 # Yandex Lyceum Django Project
 
-[![pipeline status](https://gitlab.crja72.ru/django/2026/spring/course/students/380833-meh.ww-course-1585/badges/main/pipeline.svg?key_text=Lint+%26+Test)](https://gitlab.crja72.ru/django/2026/spring/course/students/380833-meh.ww-course-1585/-/commits/main)
-
 ## О проекте
 
 Проект на Django для образовательной платформы "Яндекс Лицей".
